@@ -3,7 +3,7 @@
 function terragruntInit {
   # Gather the output of `terragrunt init`.
   echo "init: info: initializing Terragrunt configuration in ${tfWorkingDir}"
-  initOutput=$(${tfBinary} init --terragrunt-log-level debug -input=false ${*} 2>&1)
+  initOutput=$(${tgBinary} init --terragrunt-log-level debug -input=false ${*} 2>&1)
   initExitCode=${?}
 
   # Exit code of 0 indicates success. Print the output and exit.
@@ -21,7 +21,7 @@ function terragruntInit {
 
   # Comment on the pull request if necessary.
   if [ "$GITHUB_EVENT_NAME" == "pull_request" ] && [ "${tfComment}" == "1" ]; then
-    initCommentWrapper="#### \`${tfBinary} init\` Failed
+    initCommentWrapper="#### \`${tgBinary} init\` Failed
 
 \`\`\`
 ${initOutput}
