@@ -3,7 +3,7 @@
 function terragruntInit {
   # Gather the output of `terragrunt init`.
   echo "init: info: initializing Terragrunt configuration in ${tfWorkingDir}"
-  echo "command line is ${tfbinary} init --terragrunt-log-level debug -input=false ${*}"
+  echo "command line is ${tfBinary} init --terragrunt-log-level debug -input=false ${*}"
   initOutput=$(${tfBinary} init --terragrunt-log-level debug -input=false ${*} 2>&1)
   initExitCode=${?}
 
